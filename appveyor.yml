@@ -1,0 +1,6 @@
+version: 1.0.{build}
+
+install:
+  - set PATH=%PATH%;C:\MinGW\bin
+
+build_script: make
