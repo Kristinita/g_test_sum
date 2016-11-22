@@ -1,5 +1,5 @@
 #include <limits.h>
-#include "summator.h"
+#include "src/summator.h"
 #include "gtest/gtest.h"
 
 TEST(SummTest, Positive_result_summ)

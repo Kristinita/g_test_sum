@@ -38,14 +38,14 @@ test/obj/gtest_main.a : obj/gtest-all.o obj/gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 ###################################################################
-test/obj/summator.o : $(USER_DIR)/src/summator.cpp $(USER_DIR)/src/summator.h
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/src/summator.cpp -o $@
+test/obj/summator.o : src/summator.cpp src/summator.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c src/summator.cpp -o $@
 
-test/obj/summator_unittest.o : $(USER_DIR)/test/summator_unittest.cpp \
-	$(USER_DIR)/src/summator.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/test/summator_unittest.cpp -o $@
+test/obj/summator_unittest.o : test/summator_unittest.cpp \
+	src/summator.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
-test/summator_unittest : \
+summator_unittest : \
 	test/obj/summator.o \
 	test/obj/summator_unittest.o \
 	test/obj/gtest_main.a
