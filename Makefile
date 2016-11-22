@@ -46,4 +46,4 @@ summator_unittest : \
 	test/obj/summator.o \
 	test/obj/summator_unittest.o \
 	test/obj/gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX)  -lpthread $^ -o $@
