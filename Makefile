@@ -42,7 +42,7 @@ test/obj/summator.o : src/summator.cpp src/summator.h
 	$(CXX)  -c src/summator.cpp -o $@
 
 test/obj/summator_unittest.o : test/summator_unittest.cpp \
-	src/summator.h $(GTEST_HEADERS)
+	src/summator.h #$(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
