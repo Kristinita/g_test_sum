@@ -38,7 +38,7 @@ test/obj/gtest_main.a : test/obj/gtest-all.o test/obj/gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 ###################################################################
-test/obj/summator.o : src/summator.cpp #src/summator.h
+test/obj/summator.o : src/summator.cpp src/summator.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c src/summator.cpp -o $@
 
 test/obj/summator_unittest.o : test/summator_unittest.cpp \
