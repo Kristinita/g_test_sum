@@ -16,6 +16,9 @@ $(GTEST_DIR)/include/gtest/internal/*.h
 
 all : $(TESTS)
 
+clean :
+	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
+
 ###################################################################
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
