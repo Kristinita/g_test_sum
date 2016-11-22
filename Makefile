@@ -1,5 +1,5 @@
 USER_DIR = ../
-GTEST_DIR = external\googletest\googletest
+GTEST_DIR = external/googletest/googletest
 
 
 CPPFLAGS += -I$(GTEST_DIR)\include
