@@ -71,9 +71,9 @@ obj/gtest_main.a : obj/gtest-all.o obj/gtest_main.o
 obj/summator.o : $(USER_DIR)/src/summator.cpp $(USER_DIR)/src/summator.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/src/summator.cpp -o $@
 
-obj/summator_unittest.o : $(USER_DIR)/Test/summator_unittest.cpp \
+obj/summator_unittest.o : $(USER_DIR)/test/summator_unittest.cpp \
 	$(USER_DIR)/src/summator.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Test/summator_unittest.cpp -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/test/summator_unittest.cpp -o $@
 
 summator_unittest : \
 	obj/summator.o \
