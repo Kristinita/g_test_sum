@@ -51,27 +51,27 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 # implementation details, the dependencies specified below are
 # conservative and not optimized. This is fine as Google Test
 # compiles fast and for ordinary users its source rarely changes.
-obj/gtest-all.o : $(GTEST_SRCS_)
+test/obj/gtest-all.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 	$(GTEST_DIR)/src/gtest-all.cc -o $@
 
-obj/gtest_main.o : $(GTEST_SRCS_)
+test/obj/gtest_main.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 	$(GTEST_DIR)/src/gtest_main.cc -o $@
 
-obj/gtest.a : gtest-all.o
+test/obj/gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
 
-obj/gtest_main.a : obj/gtest-all.o obj/gtest_main.o
+test/obj/gtest_main.a : obj/gtest-all.o obj/gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 # Builds a sample test. A test should link with either gtest.a or
 # gtest_main.a, depending on whether it defines its own main()
 # function.
-obj/summator.o : $(USER_DIR)/src/summator.cpp $(USER_DIR)/src/summator.h
+test/obj/summator.o : $(USER_DIR)/src/summator.cpp $(USER_DIR)/src/summator.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/src/summator.cpp -o $@
 
-obj/summator_unittest.o : $(USER_DIR)/test/summator_unittest.cpp \
+test/obj/summator_unittest.o : $(USER_DIR)/test/summator_unittest.cpp \
 	$(USER_DIR)/src/summator.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/test/summator_unittest.cpp -o $@
 
