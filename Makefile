@@ -16,10 +16,6 @@ $(GTEST_DIR)/include/gtest/internal/*.h
 
 all : $(TESTS)
 
-
-clean :
-	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
-
 ###################################################################
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
@@ -40,10 +36,10 @@ test/obj/gtest_main.a : test/obj/gtest-all.o test/obj/gtest_main.o
 
 ###################################################################
 test/obj/summator.o : src/summator.cpp src/summator.h
-	$(CXX) -c src/summator.cpp -o $@
+	$(CXX)  -c src/summator.cpp -o $@
 
 test/obj/summator_unittest.o : test/summator_unittest.cpp \
-	$(GTEST_HEADERS) src/summator.h 
+	src/summator.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
