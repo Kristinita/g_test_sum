@@ -46,8 +46,5 @@ test/obj/summator_unittest.o : test/summator_unittest.cpp \
 	$(GTEST_HEADERS) src/summator.h 
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
-summator_unittest : \
-	test/obj/summator.o \
-	test/obj/summator_unittest.o \
-	test/obj/gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+summator_unittest :
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) src/summator.cpp test/summator_unittest.cpp -o $@
