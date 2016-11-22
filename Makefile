@@ -20,30 +20,30 @@ all : $(TESTS)
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 ###################################################################
-test/obj/gtest-all.o : $(GTEST_SRCS_)
+test/gtest-all.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 	$(GTEST_DIR)/src/gtest-all.cc -o $@
 
-test/obj/gtest_main.o : $(GTEST_SRCS_)
+test/gtest_main.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 	$(GTEST_DIR)/src/gtest_main.cc -o $@
 
-test/obj/gtest.a : gtest-all.o
+test/gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
 
-test/obj/gtest_main.a : test/obj/gtest-all.o test/obj/gtest_main.o
+test/gtest_main.a : test/gtest-all.o test/gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 ###################################################################
-test/obj/summator.o : src/summator.cpp src/summator.h
+test/summator.o : src/summator.cpp src/summator.h
 	$(CXX)  -c src/summator.cpp -o $@
 
-test/obj/summator_unittest.o : test/summator_unittest.cpp \
+test/summator_unittest.o : test/summator_unittest.cpp \
 	src/summator.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
-	test/obj/summator.o \
-	test/obj/summator_unittest.o \
-	test/obj/gtest_main.a
+	test/summator.o \
+	test/summator_unittest.o \
+	test/gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
