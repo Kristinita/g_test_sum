@@ -14,7 +14,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = C:\mingw64\gtests
+GTEST_DIR = external/googletest/googletest
 # Where to find user code.
 USER_DIR = ../
 
@@ -68,11 +68,11 @@ obj/gtest_main.a : obj/gtest-all.o obj/gtest_main.o
 # Builds a sample test. A test should link with either gtest.a or
 # gtest_main.a, depending on whether it defines its own main()
 # function.
-obj/summator.o : $(USER_DIR)/summator.cpp $(USER_DIR)/summator.h
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/summator.cpp -o $@
+obj/summator.o : $(USER_DIR)/src/summator.cpp $(USER_DIR)/src/summator.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/src/summator.cpp -o $@
 
 obj/summator_unittest.o : $(USER_DIR)/Test/summator_unittest.cpp \
-	$(USER_DIR)/summator.h $(GTEST_HEADERS)
+	$(USER_DIR)/src/summator.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Test/summator_unittest.cpp -o $@
 
 summator_unittest : \
