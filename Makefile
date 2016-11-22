@@ -40,10 +40,10 @@ test/obj/gtest_main.a : test/obj/gtest-all.o test/obj/gtest_main.o
 
 ###################################################################
 test/obj/summator.o : src/summator.cpp src/summator.h
-	$(CXX)  -c src/summator.cpp -o $@
+	$(CXX) -c src/summator.cpp -o $@
 
 test/obj/summator_unittest.o : test/summator_unittest.cpp \
-	src/summator.h $(GTEST_HEADERS)
+	$(GTEST_HEADERS) src/summator.h 
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
