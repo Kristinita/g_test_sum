@@ -16,6 +16,7 @@ $(GTEST_DIR)/include/gtest/internal/*.h
 
 all : $(TESTS)
 
+
 clean :
 	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
 
@@ -49,4 +50,4 @@ summator_unittest : \
 	test/obj/summator.o \
 	test/obj/summator_unittest.o \
 	test/obj/gtest_main.a
-	$(CXX)  -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
