@@ -1,6 +1,6 @@
-
-GTEST_DIR = external/googletest/googletest
 USER_DIR = ../
+GTEST_DIR = external\googletest\googletest
+
 
 CPPFLAGS += -I$(GTEST_DIR)\include
 CPPFLAGS += -I$(USER_DIR)
@@ -34,7 +34,7 @@ test/obj/gtest_main.o : $(GTEST_SRCS_)
 test/obj/gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
 
-test/obj/gtest_main.a : obj/gtest-all.o obj/gtest_main.o
+test/obj/gtest_main.a : test/obj/gtest-all.o test/obj/gtest_main.o
 	$(AR) $(ARFLAGS) $@ $^
 
 ###################################################################
