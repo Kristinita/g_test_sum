@@ -2,7 +2,7 @@ USER_DIR = ../
 GTEST_DIR = external/googletest/googletest
 
 
-CPPFLAGS += -I$(GTEST_DIR)\include
+CPPFLAGS += -I$(GTEST_DIR)\include\gtest
 CPPFLAGS += -I$(USER_DIR)
 
 CXXFLAGS += -g -Wall -Wextra
