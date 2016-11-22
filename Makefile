@@ -9,7 +9,7 @@ CXXFLAGS += -g -Wall -Wextra
 
 TESTS = summator_unittest
 
-GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
+GTEST_HEADERS = $(GTEST_DIR)/include/gtest/gtest.h \
 $(GTEST_DIR)/include/gtest/internal/*.h
 
 ###################################################################
