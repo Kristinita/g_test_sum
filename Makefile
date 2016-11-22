@@ -39,7 +39,7 @@ test/obj/gtest_main.a : test/obj/gtest-all.o test/obj/gtest_main.o
 
 ###################################################################
 test/obj/summator.o : src/summator.cpp src/summator.h
-	$(CXX) $(CPPFLAGS) -c src/summator.cpp -o $@
+	$(CXX) -c src/summator.cpp -o $@
 
 test/obj/summator_unittest.o : test/summator_unittest.cpp \
 	$(GTEST_HEADERS) src/summator.h 
