@@ -2,12 +2,14 @@ ifeq ($(OS),Windows_NT)
     $(info Building on Windows/MinGW)
     GET_THE_BALL_ROLLIN = summator_unittest.exe
     CC = g++
+    FIN_C = g++ $(CPPFLAGS) $(CXXFLAGS) $^ -DWINVER=0x0500 -o $@
   else
       UNAME_S := $(shell uname -s)
       ifeq ($(UNAME_S),Linux)
         $(info Building from Linux)
           GET_THE_BALL_ROLLIN = ./summator_unittest
 	  CC=i586-mingw32msvc-g++
+	  FIN_C = g++ $(CPPFLAGS) $(CXXFLAGS) $^ -DWINVER=0x0500 -lpthread  -o $@
       endif
   endif
 
@@ -71,4 +73,4 @@ summator_unittest : \
 	test/summator.o \
 	test/summator_unittest.o \
 	test/gtest_main.a
-	g++ $(CPPFLAGS) $(CXXFLAGS) $^ -DWINVER=0x0500   -o $@
+	FIN_C
