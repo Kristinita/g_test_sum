@@ -17,7 +17,7 @@ GTEST_DIR = external/googletest/googletest
 CPPFLAGS += -isystem -I$(GTEST_DIR)/include
 CPPFLAGS += -I$(USER_DIR)
 
-CXXFLAGS += -g -Wall -Wextra -pthread
+CXXFLAGS += -g -Wall -Wextra 
 
 TESTS = summator_unittest
 
