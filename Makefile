@@ -31,7 +31,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
-all : $(TESTS) #run
+all : $(TESTS) run
 
 run:
 	$(GET_THE_BALL_ROLLIN)
@@ -43,11 +43,11 @@ clean :
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 ###################################################################
-test/gtest-all.o : $(GTEST_DIR)/src/gtest-all.cc $(FOR_TEST)
+test/gtest-all.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest-all.cc -o $@
 
-test/gtest_main.o : $(GTEST_DIR)/src/gtest_main.cc $(FOR_TEST)
+test/gtest_main.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest_main.cc -o $@
 
@@ -68,5 +68,5 @@ test/summator_unittest.o : test/summator_unittest.cpp \
 summator_unittest : \
 	test/summator.o \
 	test/summator_unittest.o \
-	#test/gtest_main.a
-	#g++ $(CPPFLAGS) $(CXXFLAGS) $^ -lpthread  -o $@
+	test/gtest_main.a
+	g++ $(CPPFLAGS) $(CXXFLAGS) $^ -lpthread  -o $@
