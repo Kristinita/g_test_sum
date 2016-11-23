@@ -20,7 +20,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 ###################################################################
 
 all : test/summator.o test/gtest_main.a test/summator_unittest.o
-	#$(CC) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o test.exe
 
 clean :
 	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
