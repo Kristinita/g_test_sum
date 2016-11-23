@@ -21,10 +21,10 @@ CXXFLAGS += -g -Wall -Wextra
 
 TESTS = summator_unittest
 
-GTEST_HEADERS := $(GTEST_DIR)/include/gtest/*.h \
-$(GTEST_DIR)/include/gtest/internal/*.h
+GTEST_HEADERS := $(GTEST_DIR)/include/gtest/%.h \
+$(GTEST_DIR)/include/gtest/internal/%.h
 
-CC_AND_OTHER := $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
+CC_AND_OTHER := $(GTEST_DIR)/src/%.cc $(GTEST_DIR)/src/%.h $(GTEST_HEADERS)
 
 FOR_TEST := $(wildcard $(CC_AND_OTHER))
 SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
