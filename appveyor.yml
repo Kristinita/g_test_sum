@@ -1,7 +1,7 @@
 version: 1.0.{build}
 
 install:
-  - set PATH=%PATH%;C:\MinGW\bin; C:\projects\g-test-sum\external\googletest\googletest\include
+  - set PATH=%PATH%;C:\MinGW\bin; C:\projects\g-test-sum\external\googletest\googletest\include;
   - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
 
 build_script: 
