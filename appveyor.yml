@@ -10,5 +10,5 @@ install:
 
 build_script: 
   make 
-on_finish:
+after_build:
   summator_unitest.exe
