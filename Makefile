@@ -31,8 +31,8 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
-all : $(TESTS) #run
-
+all : #$(TESTS) #run
+	dir
 run:
 	$(GET_THE_BALL_ROLLIN)
 
@@ -66,7 +66,6 @@ test/summator_unittest.o : test/summator_unittest.cpp \
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittes: 
-	dir 
 	#test/summator.o \
 	#test/summator_unittest.o \
 	#test/gtest_main.a
