@@ -22,7 +22,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 all : $(TESTS) run
 
 run:
-	./summator_unittest.exe
+	./summator_unittest
 
 clean :
 	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
