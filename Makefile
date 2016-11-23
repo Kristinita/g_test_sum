@@ -31,7 +31,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
-all : $(TESTS) run
+all : $(TESTS) #run
 
 run:
 	$(GET_THE_BALL_ROLLIN)
