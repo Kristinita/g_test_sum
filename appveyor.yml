@@ -11,4 +11,4 @@ install:
 build_script: 
   make 
 on_finish:
-  summator_unitest
+  summator_unitest.exe
