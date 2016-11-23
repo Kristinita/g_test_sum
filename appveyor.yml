@@ -10,4 +10,5 @@ install:
 
 build_script: 
   - make 
-  - cmd: summator_unittest.exe
+test_script:
+  - C:\projects\g-test-sum\summator_unittest.exe
