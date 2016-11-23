@@ -1,12 +1,13 @@
 version: 1.0.{build}
 
 clone_script:
-- cmd: git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
-- cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
+  - cmd: git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+  - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
 
 install:
   - set PATH=%PATH%;C:\MinGW\bin; C:\projects\g-test-sum\external\googletest\googletest\include;
   - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
 
 build_script: 
-  make 
+  - make 
+  - cmd: summator_unittest.exe
