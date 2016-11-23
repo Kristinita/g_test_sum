@@ -16,7 +16,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
-all : $(TESTS)
+all : test/summator.o test/gtest_main.a
 
 clean :
 	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
