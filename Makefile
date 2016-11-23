@@ -27,11 +27,11 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 ###################################################################
 test/gtest-all.o : $(GTEST_SRCS_)
-	g++ $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
+	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest-all.cc -o $@
 
 test/gtest_main.o : $(GTEST_SRCS_)
-	g++ $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
+	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest_main.cc -o $@
 
 test/gtest.a : gtest-all.o
