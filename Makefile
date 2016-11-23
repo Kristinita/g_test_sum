@@ -65,8 +65,8 @@ test/summator_unittest.o : test/summator_unittest.cpp \
 	src/summator.h $(SOURCE_FILES)
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
-summator_unittest : \
+summator_unittest : test/gtest_main.a
 	#test/summator.o \
 	#test/summator_unittest.o \
-	test/gtest_main.a
+	
 	#g++ $(CPPFLAGS) $(CXXFLAGS) $^ -lpthread  -o $@
