@@ -12,7 +12,9 @@ TESTS = summator_unittest
 GTEST_HEADERS := $(GTEST_DIR)/include/gtest/*.h \
 $(GTEST_DIR)/include/gtest/internal/*.h
 
+CC_AND_OTHER := $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
+FOR_TEST := $(wildcard $(CC_AND_OTHER))
 SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
@@ -27,11 +29,11 @@ clean :
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 ###################################################################
-test/gtest-all.o : $(GTEST_SRCS_)
+test/gtest-all.o : $(FOR_TEST)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest-all.cc -o $@
 
-test/gtest_main.o : 
+test/gtest_main.o : $(FOR_TEST)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest_main.cc -o $@
 
