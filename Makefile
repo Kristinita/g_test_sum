@@ -38,11 +38,11 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 ###################################################################
 test/gtest-all.o : $(GTEST_SRCS_)
-	$(CC) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
+	g++ $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 	$(GTEST_DIR)/src/gtest-all.cc -o $@
 
 test/gtest_main.o : $(GTEST_SRCS_)
-	$(CC) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
+	g++ $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 	$(GTEST_DIR)/src/gtest_main.cc -o $@
 
 test/gtest.a : gtest-all.o
@@ -53,14 +53,14 @@ test/gtest_main.a : test/gtest-all.o test/gtest_main.o
 
 ###################################################################
 test/summator.o : src/summator.cpp src/summator.h
-	$(CC)  -c src/summator.cpp -o $@
+	g++  -c src/summator.cpp -o $@
 
 test/summator_unittest.o : test/summator_unittest.cpp \
 	src/summator.h $(SOURCE_FILES)
-	$(CC) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
+	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
 	test/summator.o \
 	test/summator_unittest.o \
 	test/gtest_main.a
-	$(CC) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	g++ $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
