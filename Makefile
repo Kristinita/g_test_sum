@@ -1,6 +1,6 @@
 ifeq ($(OS),Windows_NT)
     $(info Building on Windows/MinGW)
-    #GET_THE_BALL_ROLLIN = summator_unittest.exe
+    GET_THE_BALL_ROLLIN = dir #summator_unittest.exe
     CC = g++
     FIN_C = g++ $(CPPFLAGS) $(CXXFLAGS) $^ -DWINVER=0x0500 -o $@
   else
