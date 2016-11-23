@@ -45,7 +45,7 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 ###################################################################
 test/gtest-all.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
-		$(GTEST_DIR)/src/gtest-all.cc -lpthread -o $@
+	$(GTEST_DIR)/src/gtest-all.cc -lpthread -o $@
 
 test/gtest_main.o : $(GTEST_SRCS_)
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
