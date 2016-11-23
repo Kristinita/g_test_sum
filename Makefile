@@ -31,10 +31,16 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
-all : #$(TESTS) #run
-	cd external dir
+all : go_external dir#$(TESTS) #run
+
 run:
 	$(GET_THE_BALL_ROLLIN)
+	
+go_external:
+	cd external
+	
+look_dir:
+	dir
 
 clean :
 	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
