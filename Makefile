@@ -73,4 +73,4 @@ summator_unittest : \
 	test/summator.o \
 	test/summator_unittest.o \
 	test/gtest_main.a
-	FIN_C
+	$(FIN_C)
