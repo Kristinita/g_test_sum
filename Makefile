@@ -31,7 +31,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
-all : go_external look_dir#$(TESTS) #run
+all : $(TESTS) run
 
 run:
 	$(GET_THE_BALL_ROLLIN)
@@ -72,7 +72,7 @@ test/summator_unittest.o : test/summator_unittest.cpp \
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittes: 
-	#test/summator.o \
-	#test/summator_unittest.o \
-	#test/gtest_main.a
-	#g++ $(CPPFLAGS) $(CXXFLAGS) $^ -lpthread  -o $@
+	test/summator.o \
+	test/summator_unittest.o \
+	test/gtest_main.a
+	g++ $(CPPFLAGS) $(CXXFLAGS) $^ -lpthread  -o $@
