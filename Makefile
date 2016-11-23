@@ -32,7 +32,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 ###################################################################
 
 all : #$(TESTS) #run
-	dir
+	cd external dir
 run:
 	$(GET_THE_BALL_ROLLIN)
 
