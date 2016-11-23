@@ -41,14 +41,14 @@ test/gtest_main.a : test/gtest-all.o test/gtest_main.o
 
 ###################################################################
 test/summator.o : src/summator.cpp src/summator.h
-	$(CXX)  -c src/summator.cpp -o $@
+	g++  -c src/summator.cpp -o $@
 
 test/summator_unittest.o : test/summator_unittest.cpp \
 	src/summator.h $(SOURCE_FILES)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
+	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
 	test/summator.o \
 	test/summator_unittest.o \
 	test/gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	g++ $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
