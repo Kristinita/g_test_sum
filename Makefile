@@ -61,8 +61,8 @@ test/gtest_main.a : test/gtest-all.o test/gtest_main.o
 test/summator.o : src/summator.cpp src/summator.h
 	g++  -c src/summator.cpp -o $@
 
-test/summator_unittest.o : test/summator_unittest.cpp \
-	src/summator.h $(SOURCE_FILES)
+test/summator_unittest.o : test/summator_unittest.cpp $(FOR_TEST) \
+	src/summator.h #$(SOURCE_FILES)
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
