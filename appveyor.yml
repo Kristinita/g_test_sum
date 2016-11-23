@@ -4,4 +4,5 @@ install:
   - set PATH=%PATH%;C:\MinGW\bin
   - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
 
-build_script: make
+build_script: 
+  make & make all
