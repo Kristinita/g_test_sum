@@ -71,4 +71,4 @@ summator_unittest : \
 	test/summator.o \
 	test/summator_unittest.o \
 	test/gtest_main.a
-	g++ $(CPPFLAGS) $(CXXFLAGS) $^ -lpthread  -o $@
+	g++ $(CPPFLAGS) $(CXXFLAGS) $^ -DWINVER=0x0500 -pthread  -o $@
