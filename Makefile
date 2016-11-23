@@ -29,11 +29,11 @@ clean :
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 ###################################################################
-test/gtest-all.o : $(FOR_TEST)
+test/gtest-all.o : $(FOR_TEST) $(GTEST_DIR)/src/gtest-all.cc
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest-all.cc -o $@
 
-test/gtest_main.o : $(FOR_TEST)
+test/gtest_main.o : $(FOR_TEST) $(GTEST_DIR)/src/gtest_main.cc
 	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
 		$(GTEST_DIR)/src/gtest_main.cc -o $@
 
