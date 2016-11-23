@@ -9,8 +9,10 @@ CXXFLAGS += -g -Wall -Wextra
 
 TESTS = summator_unittest
 
-GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
+GTEST_HEADERS := $(GTEST_DIR)/include/gtest/*.h \
 $(GTEST_DIR)/include/gtest/internal/*.h
+
+SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 
 ###################################################################
 
@@ -42,7 +44,7 @@ test/summator.o : src/summator.cpp src/summator.h
 	$(CXX)  -c src/summator.cpp -o $@
 
 test/summator_unittest.o : test/summator_unittest.cpp \
-	src/summator.h $(GTEST_HEADERS)
+	src/summator.h $(SOURCE_FILES)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
 summator_unittest : \
