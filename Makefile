@@ -1,14 +1,3 @@
-ifeq ($(OS),Windows_NT)
-    $(info Building on Windows/MinGW)
-    CC = g++
-  else
-      UNAME_S := $(shell uname -s)
-      ifeq ($(UNAME_S),Linux)
-        $(info Building from Linux)
-          CC=i586-mingw32msvc-g++
-      endif
-  endif
-
 USER_DIR = ../
 GTEST_DIR = external/googletest/googletest
 
@@ -39,11 +28,11 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 ###################################################################
 test/gtest-all.o : $(GTEST_SRCS_)
 	g++ $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
-	$(GTEST_DIR)/src/gtest-all.cc -o $@
+		$(GTEST_DIR)/src/gtest-all.cc -o $@
 
 test/gtest_main.o : $(GTEST_SRCS_)
 	g++ $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
-	$(GTEST_DIR)/src/gtest_main.cc -o $@
+		$(GTEST_DIR)/src/gtest_main.cc -o $@
 
 test/gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
