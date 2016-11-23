@@ -1,3 +1,15 @@
+ifeq ($(OS),Windows_NT)
+    $(info Building on Windows/MinGW)
+    GET_THE_BALL_ROLLIN = summator_unittest.exe
+  else
+      UNAME_S := $(shell uname -s)
+      ifeq ($(UNAME_S),Linux)
+        $(info Building from Linux)
+          GET_THE_BALL_ROLLIN = ./summator_unittest
+      endif
+  endif
+
+
 USER_DIR = ../
 GTEST_DIR = external/googletest/googletest
 
@@ -22,7 +34,7 @@ SOURCE_FILES := $(wildcard $(GTEST_HEADERS))
 all : $(TESTS) run
 
 run:
-	./summator_unittest
+	$(GET_THE_BALL_ROLLIN)
 
 clean :
 	rm -f $(TESTS) obj/gtest.a obj/gtest_main.a *.o obj/*.o
