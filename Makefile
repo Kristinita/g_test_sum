@@ -65,7 +65,8 @@ test/summator_unittest.o : test/summator_unittest.cpp \
 	src/summator.h $(FOR_TEST)
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c test/summator_unittest.cpp -o $@
 
-summator_unittes: dir 
+summator_unittes: 
+	dir 
 	#test/summator.o \
 	#test/summator_unittest.o \
 	#test/gtest_main.a
