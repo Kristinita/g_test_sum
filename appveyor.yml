@@ -5,7 +5,7 @@ clone_script:
   - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
 
 install:
-  #- set PATH=%PATH%;C:\MinGW\bin; C:\projects\g-test-sum\external\googletest\googletest\include;
+  - set PATH=%PATH%;C:\MinGW\bin; #C:\projects\g-test-sum\external\googletest\googletest\include;
   - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
   - cmd: set PATH=%PATH%;C:\Program Files (x86)\Conan\conan
 
