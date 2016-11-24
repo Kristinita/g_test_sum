@@ -13,6 +13,7 @@ install:
   - cmd: set PATH=%PATH%;C:\Program Files (x86)\Conan\conan
 
 build_script: 
+  - cmd: conan install -o gtest:shared=True
   - make 
 on_finish:
   - C:\projects\g-test-sum\summator_unittest.exe
