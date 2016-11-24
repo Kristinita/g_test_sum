@@ -7,6 +7,10 @@ clone_script:
 install:
   - set PATH=%PATH%;C:\MinGW\bin; C:\projects\g-test-sum\external\googletest\googletest\include;
   - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
+  - cmd: echo "Downloading conan..."
+  - ps: wget http://downloads.conan.io/latest_windows -OutFile conan_installer.exe
+  - cmd: conan_installer.exe /VERYSILENT
+  - cmd: set PATH=%PATH%;C:\Program Files (x86)\Conan\conan
 
 build_script: 
   - make 
